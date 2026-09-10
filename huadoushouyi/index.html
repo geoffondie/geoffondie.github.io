@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>花都兽医下载-花都宠物医院官方APP客户端下载与使用指南</title>
+    <meta name="description" content="花都兽医下载页面提供花都宠物医院官方APP最新版本下载，涵盖安卓版与iOS版安装说明、在线问诊、疫苗预约、宠物档案管理等核心功能介绍，以及常见问题解答与使用指引。">
+    <meta name="keywords" content="花都兽医下载,花都宠物医院APP,宠物问诊软件,兽医在线咨询,宠物医院客户端下载">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: #f5f7fa;
+            color: #1e2a3a;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 简易顶部信息条 */
+        .top-bar {
+            background: #2b4c3b;
+            color: #d4e8dc;
+            font-size: 13px;
+            padding: 8px 0;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .top-bar span {
+            margin-right: 18px;
+        }
+
+        /* 主头部 */
+        .main-header {
+            background: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+            flex-wrap: wrap;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #3a7d5c, #1f4a36);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 22px;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(42, 92, 65, 0.2);
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1f4a36;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        .logo-text p {
+            font-size: 13px;
+            color: #6b7a71;
+            margin-top: 2px;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #2d3f36;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.2s;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: #2b6e4e;
+            border-bottom-color: #2b6e4e;
+        }
+
+        .download-btn-nav {
+            background: #2b6e4e;
+            color: #fff !important;
+            padding: 8px 22px !important;
+            border-radius: 30px;
+            border-bottom: none !important;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .download-btn-nav:hover {
+            background: #1f523a;
+        }
+
+        /* 移动端导航折叠 */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #1f4a36;
+        }
+
+        /* 首屏下载区块 */
+        .hero-download {
+            background: linear-gradient(145deg, #1f4a36 0%, #2b6e4e 60%, #3a8a66 100%);
+            padding: 60px 0;
+            color: #fff;
+        }
+
+        .hero-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-copy {
+            flex: 1 1 480px;
+        }
+
+        .hero-copy h2 {
+            font-size: 38px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-copy p {
+            font-size: 17px;
+            opacity: 0.92;
+            margin-bottom: 26px;
+            max-width: 580px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-size: 17px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-android {
+            background: #ffffff;
+            color: #1f4a36;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-ios {
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .btn-android:hover {
+            background: #e9f3ee;
+            transform: translateY(-2px);
+        }
+
+        .btn-ios:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .hero-phone {
+            flex: 0 0 280px;
+            text-align: center;
+        }
+
+        .phone-frame {
+            width: 240px;
+            height: 480px;
+            background: #0f2a1e;
+            border-radius: 36px;
+            padding: 12px 8px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            border: 3px solid #2d4a3a;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .phone-screen {
+            background: #f0f7f2;
+            height: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            padding: 20px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .screen-header {
+            background: #2b6e4e;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 10px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .screen-chat {
+            background: #fff;
+            border-radius: 18px;
+            padding: 18px 12px;
+            flex: 1;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .chat-line {
+            background: #e1f0e8;
+            padding: 10px 12px;
+            border-radius: 16px;
+            margin-bottom: 10px;
+            font-size: 13px;
+            color: #1f3a2c;
+        }
+
+        .chat-line.right {
+            background: #cfdfd6;
+            text-align: right;
+        }
+
+        .screen-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .action-chip {
+            background: #fff;
+            border-radius: 20px;
+            padding: 6px 12px;
+            font-size: 12px;
+            color: #1f4a36;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+        }
+
+        /* 核心功能 */
+        .features-section {
+            padding: 70px 0;
+            background: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1f3a2c;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: #5f6e66;
+            font-size: 16px;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: #f9fbfa;
+            border-radius: 20px;
+            padding: 30px 22px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #e3ebe6;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: #e3f0e9;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #2b6e4e;
+        }
+
+        .feature-card h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+            color: #1f3a2c;
+        }
+
+        .feature-card p {
+            color: #4d5f55;
+            font-size: 15px;
+        }
+
+        /* 版本说明与下载区 */
+        .download-section {
+            padding: 70px 0;
+            background: #f0f5f2;
+        }
+
+        .download-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .version-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            border: 1px solid #dde7e0;
+        }
+
+        .version-card h3 {
+            font-size: 22px;
+            color: #1f4a36;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .version-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .version-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eef3f0;
+            display: flex;
+            justify-content: space-between;
+            font-size: 15px;
+        }
+
+        .version-list li span:last-child {
+            color: #4a6658;
+            font-weight: 500;
+        }
+
+        .version-note {
+            background: #f6faf8;
+            padding: 14px 18px;
+            border-radius: 12px;
+            font-size: 14px;
+            color: #3d5a4c;
+            border-left: 4px solid #2b6e4e;
+            margin: 20px 0;
+        }
+
+        .btn-download-v {
+            display: inline-block;
+            background: #2b6e4e;
+            color: #fff;
+            padding: 12px 32px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
+
+        .btn-download-v:hover {
+            background: #1f523a;
+        }
+
+        /* 使用说明 */
+        .guide-section {
+            padding: 70px 0;
+            background: #fff;
+        }
+
+        .guide-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .step-item {
+            text-align: center;
+            padding: 24px 16px;
+            border-radius: 20px;
+            background: #f9fbfa;
+            border: 1px solid #e4eae6;
+        }
+
+        .step-num {
+            width: 46px;
+            height: 46px;
+            background: #2b6e4e;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 auto 16px;
+        }
+
+        .step-item h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #1f3a2c;
+        }
+
+        .step-item p {
+            font-size: 14px;
+            color: #5a6b62;
+        }
+
+        /* 常见问题 */
+        .faq-section {
+            padding: 70px 0;
+            background: #f0f5f2;
+        }
+
+        .faq-list {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #fff;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            padding: 22px 28px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e0e8e3;
+        }
+
+        .faq-item h3 {
+            font-size: 18px;
+            color: #1f3a2c;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .faq-item p {
+            color: #4d5f55;
+            font-size: 15px;
+        }
+
+        /* 安全与说明 */
+        .safety-section {
+            background: #1f4a36;
+            color: #dcebe3;
+            padding: 50px 0;
+        }
+
+        .safety-flex {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .safety-item {
+            flex: 1 1 260px;
+        }
+
+        .safety-item h3 {
+            color: #ffffff;
+            font-size: 19px;
+            margin-bottom: 12px;
+        }
+
+        .safety-item p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* 页脚 */
+        .main-footer {
+            background: #143024;
+            color: #a8c2b5;
+            padding: 40px 0 20px;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .footer-links a {
+            color: #bdd6c9;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .main-nav {
+                display: none;
+                width: 100%;
+                order: 3;
+                padding: 15px 0;
+            }
+
+            .main-nav.active {
+                display: block;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .hero-copy h2 {
+                font-size: 30px;
+            }
+
+            .hero-phone {
+                flex-basis: 100%;
+                margin-top: 30px;
+            }
+
+            .phone-frame {
+                width: 200px;
+                height: 380px;
+            }
+
+            .download-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-inner {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .download-buttons .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .section-title h2 {
+                font-size: 26px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 顶部信息条 -->
+<div class="top-bar">
+    <div class="container">
+        <div>
+            <span>📅 今日出诊时间：9:00 - 18:00</span>
+            <span>📞 客服热线：400-800-1234</span>
+        </div>
+        <div style="font-size:12px;">花都区 · 花城大道88号</div>
+    </div>
+</div>
+
+<!-- 主头部 -->
+<header class="main-header">
+    <div class="container header-inner">
+        <div class="logo-area">
+            <div class="logo-icon">花</div>
+            <div class="logo-text">
+                <h1>花都兽医</h1>
+                <p>花都宠物医院官方客户端</p>
+            </div>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="打开菜单">☰</button>
+        <nav class="main-nav" id="mainNav">
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#features">核心功能</a></li>
+                <li><a href="#download">下载APP</a></li>
+                <li><a href="#guide">使用指南</a></li>
+                <li><a href="#faq">帮助FAQ</a></li>
+                <li><a href="#download" class="download-btn-nav">📲 立即下载</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- 首屏主下载区 -->
+<section class="hero-download">
+    <div class="container hero-flex">
+        <div class="hero-copy">
+            <div class="hero-badge">✔ 官方正版 · 安全认证</div>
+            <h2>花都兽医APP<br>专业宠物诊疗服务</h2>
+            <p>在线问诊、疫苗预约、宠物档案管理、用药提醒……花都兽医客户端为爱宠提供一站式健康管理。支持安卓与iOS设备，扫码或点击按钮即可下载最新版。</p>
+            <div class="download-buttons">
+                <a href="#" class="btn btn-android">🤖 安卓版下载</a>
+                <a href="#" class="btn btn-ios">🍎 iOS版下载</a>
+            </div>
+            <p style="margin-top:18px; font-size:14px; opacity:0.8;">当前最新版本：V3.2.1 | 更新日期：2025.02</p>
+        </div>
+        <div class="hero-phone">
+            <div class="phone-frame">
+                <div class="phone-screen">
+                    <div class="screen-header">花都兽医 · 在线咨询</div>
+                    <div class="screen-chat">
+                        <div class="chat-line">您好，我的猫咪最近食欲不振</div>
+                        <div class="chat-line right">请问有呕吐或腹泻吗？</div>
+                        <div class="chat-line">没有，就是不太爱动</div>
+                        <div class="chat-line right">建议带过来做个基础检查</div>
+                    </div>
+                    <div class="screen-actions">
+                        <div class="action-chip">📅 疫苗预约</div>
+                        <div class="action-chip">📋 健康档案</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 核心功能 -->
+<section class="features-section" id="features">
+    <div class="container">
+        <div class="section-title">
+            <h2>为什么选择花都兽医？</h2>
+            <p>花都兽医APP专为宠物主打造，将专业兽医服务延伸到手机端，让宠物健康管理更轻松。</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🩺</div>
+                <h3>在线问诊</h3>
+                <p>执业兽医师一对一图文咨询，常见病症快速判断，减少不必要的奔波。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💉</div>
+                <h3>疫苗提醒</h3>
+                <p>记录宠物免疫日程，自动发送接种提醒，不再错过任何一次防疫。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <h3>健康档案</h3>
+                <p>体重、体温、病历、用药记录云端同步，随时查看宠物的健康变化。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏥</div>
+                <h3>预约挂号</h3>
+                <p>提前选择分院与医生，到院即诊，减少排队等待时间。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📦</div>
+                <h3>药品商城</h3>
+                <p>宠物驱虫药、处方粮、保健品等正品保障，配送到家。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📞</div>
+                <h3>紧急求助</h3>
+                <p>夜间急症专线，专业团队指导急救处理，为生命争取时间。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 下载与版本详情 -->
+<section class="download-section" id="download">
+    <div class="container">
+        <div class="section-title">
+            <h2>花都兽医下载 · 版本与安装</h2>
+            <p>请根据您的设备选择对应版本。所有版本均通过安全检测，请放心下载。</p>
+        </div>
+        <div class="download-grid">
+            <div class="version-card">
+                <h3>📱 安卓版 Android</h3>
+                <p style="color:#5f6e66; font-size:15px;">适用于Android 8.0及以上系统</p>
+                <ul class="version-list">
+                    <li><span>当前版本</span><span>V3.2.1</span></li>
+                    <li><span>更新日期</span><span>2025-02-18</span></li>
+                    <li><span>安装包大小</span><span>48.6 MB</span></li>
+                    <li><span>权限要求</span><span>存储、相机、通知</span></li>
+                </ul>
+                <div class="version-note">
+                    更新内容：优化了视频问诊流畅度，修复了部分机型闪退问题，新增药品扫码识别功能。
+                </div>
+                <a href="#" class="btn-download-v">⬇️ 下载安卓版</a>
+            </div>
+            <div class="version-card">
+                <h3>🍎 苹果版 iOS</h3>
+                <p style="color:#5f6e66; font-size:15px;">适用于iOS 13.0及以上系统</p>
+                <ul class="version-list">
+                    <li><span>当前版本</span><span>V3.2.1</span></li>
+                    <li><span>更新日期</span><span>2025-02-16</span></li>
+                    <li><span>安装包大小</span><span>52.1 MB</span></li>
+                    <li><span>权限要求</span><span>相机、通知、定位</span></li>
+                </ul>
+                <div class="version-note">
+                    更新内容：适配iOS 18新特性，提升深色模式显示效果，优化宠物档案加载速度。
+                </div>
+                <a href="#" class="btn-download-v">⬇️ 下载iOS版</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 使用指南 -->
+<section class="guide-section" id="guide">
+    <div class="container">
+        <div class="section-title">
+            <h2>花都兽医APP 使用指南</h2>
+            <p>从下载到完成第一次问诊，只需四步</p>
+        </div>
+        <div class="guide-steps">
+            <div class="step-item">
+                <div class="step-num">1</div>
+                <h3>下载安装</h3>
+                <p>点击上方按钮下载，按提示完成安装。首次打开请允许必要权限。</p>
+            </div>
+            <div class="step-item">
+                <div class="step-num">2</div>
+                <h3>注册登录</h3>
+                <p>使用手机号一键注册，或通过微信/QQ快捷登录，完善宠物基本信息。</p>
+            </div>
+            <div class="step-item">
+                <div class="step-num">3</div>
+                <h3>添加宠物</h3>
+                <p>在“我的宠物”中创建档案，上传照片，填写品种、年龄、体重、绝育情况等。</p>
+            </div>
+            <div class="step-item">
+                <div class="step-num">4</div>
+                <h3>开始使用</h3>
+                <p>选择在线问诊、疫苗预约或药品购买，享受专业服务。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 常见问题 -->
+<section class="faq-section" id="faq">
+    <div class="container">
+        <div class="section-title">
+            <h2>用户常见问题</h2>
+            <p>关于花都兽医下载与使用的解答</p>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <h3>Q：花都兽医APP是免费的吗？</h3>
+                <p>基础功能如宠物档案、疫苗提醒、健康资讯永久免费。在线图文问诊按次收费，首次问诊可享受新人优惠。具体费用在问诊前均有明确提示。</p>
+            </div>
+            <div class="faq-item">
+                <h3>Q：下载后无法安装怎么办？</h3>
+                <p>安卓用户请检查是否开启“允许安装未知来源应用”权限，并确保系统版本在Android 8.0以上。若提示解析包错误，请删除原安装包后重新下载。iOS用户请确保系统版本不低于13.0。</p>
+            </div>
+            <div class="faq-item">
+                <h3>Q：在线问诊的医生是正规兽医吗？</h3>
+                <p>花都兽医平台上的所有问诊医生均持有国家执业兽医师资格证书，并拥有至少3年临床经验。每位医生的资质信息均在个人主页公示，可随时查看。</p>
+            </div>
+            <div class="faq-item">
+                <h3>Q：如何绑定附近的花都宠物医院？</h3>
+                <p>登录APP后，在“我的-分院选择”中定位或搜索附近的花都宠物医院分院，绑定后即可查看该院的出诊排班和预约服务。</p>
+            </div>
+            <div class="faq-item">
+                <h3>Q：宠物档案数据安全吗？</h3>
+                <p>您的数据均经过加密存储，仅用于诊疗服务。未经您的允许，不会向第三方透露任何宠物健康信息。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 安全说明 -->
+<section class="safety-section">
+    <div class="container">
+        <div class="safety-flex">
+            <div class="safety-item">
+                <h3>🔒 官方正版保障</h3>
+                <p>本页面为花都兽医官方指定下载渠道，所有安装包均经过安全检测，无捆绑插件。</p>
+            </div>
+            <div class="safety-item">
+                <h3>🛡️ 隐私保护</h3>
+                <p>严格遵循个人信息保护法，采用金融级加密传输，守护您的隐私。</p>
+            </div>
+            <div class="safety-item">
+                <h3>⏰ 服务时间</h3>
+                <p>在线问诊服务时间为每日8:30-22:00，夜间提供紧急电话指导。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="main-footer">
+    <div class="container">
+        <div class="footer-links">
+            <a href="#">关于我们</a>
+            <a href="#">分院查询</a>
+            <a href="#">加入我们</a>
+            <a href="#">隐私政策</a>
+            <a href="#">用户协议</a>
+            <a href="#">联系客服</a>
+        </div>
+        <div class="copyright">
+            <span>© 2025 花都兽医下载 · 花都宠物医院官方APP</span>
+            <span>粤ICP备2025018888号-1</span>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // 移动端导航折叠
+    document.getElementById('navToggle').addEventListener('click', function() {
+        var nav = document.getElementById('mainNav');
+        nav.classList.toggle('active');
+    });
+</script>
+</body>
+</html>
